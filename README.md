@@ -44,18 +44,7 @@ git clone https://github.com/your-username/realtime-zunda.git
 cd realtime-zunda
 ```
 
-### 2. 依存関係のインストール
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. VOICEVOXのセットアップ
-
-1. [VOICEVOX公式サイト](https://voicevox.hiroshiba.jp/)からVOICEVOXをダウンロード・インストール
-2. VOICEVOXを起動する
-
-### 4. APIキーの設定
+### 2. APIキーの設定
 
 1. [Google AI Studio](https://aistudio.google.com/)でAPIキーを取得
 2. プロジェクトルートに`.env`ファイルを作成
@@ -66,6 +55,18 @@ GOOGLE_API_KEY=your_actual_api_key_here
 ```
 
 **注意**: `.env`ファイルには実際のAPIキーを設定し、GitHubにはコミットしないでください。
+
+### 3. 依存関係のインストール
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. VOICEVOXのセットアップ
+
+1. [VOICEVOX公式サイト](https://voicevox.hiroshiba.jp/)からVOICEVOXをダウンロード・インストール
+2. VOICEVOXを起動する
+
 
 ## 使用方法
 
