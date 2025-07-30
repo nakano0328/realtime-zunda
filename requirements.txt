@@ -1,0 +1,5 @@
+google-generativeai
+speechrecognition
+pyaudio
+requests
+pydub
