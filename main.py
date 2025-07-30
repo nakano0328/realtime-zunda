@@ -4,11 +4,19 @@ import requests
 import io
 from pydub import AudioSegment
 from pydub.playback import play
+import os
+from dotenv import load_dotenv
+
+# .envファイルを読み込み
+load_dotenv()
+
+# Google AI StudioのAPIキーを環境変数から取得
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+if not GOOGLE_API_KEY:
+    raise ValueError("GOOGLE_API_KEYが設定されていません。.envファイルを確認してください。")
 
 # --- 設定項目 ---
-# Google AI Studioで取得したAPIキーを設定
-GOOGLE_API_KEY = "your_api_key_here"  # ここにAPIキーを入力してください
-
 # VOICEVOXのキャラクターID (ずんだもんのノーマルスタイルは3)
 SPEAKER_ID = 3
 
@@ -82,15 +90,12 @@ def main():
                 break
 
             # Geminiに応答を生成させる
-            print(">> Geminiに問い合わせ中...")
             response = chat.send_message(user_text, stream=True)
             
             response_text = ""
             try:
                 for chunk in response:
                     response_text += chunk.text
-                
-                print(">> Geminiからの応答:", response_text) # ★AIの応答内容をコンソールに表示
 
                 if not response_text:
                     print(">> エラー: Geminiから空の応答が返ってきました。")
@@ -104,9 +109,7 @@ def main():
             print(f"ずんだもん: {response_text}")
 
             # ずんだもんが話す
-            print(">> VOICEVOXで音声合成を開始します...") # ★追加
             speak_zundamon(response_text)
-            print(">> 音声の再生が完了しました。") # ★追加
 
         except sr.UnknownValueError:
             print("ごめんなさい、うまく聞き取れなかったのだ。もう一度言ってほしいのだ。")

@@ -13,6 +13,17 @@
 - **音声合成**: VOICEVOXを使用してずんだもんの声で音声出力
 - **リアルタイム会話**: 連続的な会話セッション
 
+### ファイル構成
+
+```
+realtime-zunda/
+├── main.py              # メインプログラム
+├── requirements.txt     # Python依存関係
+├── README.md           # このファイル
+├── .gitignore          # Git除外ファイル
+└── .env                # 環境変数（APIキー等）
+```
+
 ## 必要な環境
 
 ### ソフトウェア要件
@@ -26,25 +37,35 @@
 
 ## セットアップ
 
-### 1. 依存関係のインストール
+### 1. リポジトリのクローン
+
+```bash
+git clone https://github.com/your-username/realtime-zunda.git
+cd realtime-zunda
+```
+
+### 2. 依存関係のインストール
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. VOICEVOXのセットアップ
+### 3. VOICEVOXのセットアップ
 
 1. [VOICEVOX公式サイト](https://voicevox.hiroshiba.jp/)からVOICEVOXをダウンロード・インストール
 2. VOICEVOXを起動し、APIサーバーモードで実行（通常は`http://127.0.0.1:50021`で起動）
 
-### 3. APIキーの設定
+### 4. APIキーの設定
 
 1. [Google AI Studio](https://aistudio.google.com/)でAPIキーを取得
-2. [`main.py`](main.py)の`GOOGLE_API_KEY`変数に取得したAPIキーを設定
+2. プロジェクトルートに`.env`ファイルを作成
+3. `.env`ファイルに以下の内容を追加：
 
-```python
-GOOGLE_API_KEY = "your_actual_api_key_here"
+```env
+GOOGLE_API_KEY=your_actual_api_key_here
 ```
+
+**注意**: `.env`ファイルには実際のAPIキーを設定し、GitHubにはコミットしないでください。
 
 ## 使用方法
 
@@ -81,22 +102,10 @@ python main.py
 
 **VOICEVOXに接続できない**
 - VOICEVOXが起動しているか確認
-- APIサーバーが`http://127.0.0.1:50021`で動作しているか確認
 
 **Gemini APIエラー**
 - APIキーが正しく設定されているか確認
 - Google AI StudioでAPIキーが有効か確認
-
-## ファイル構成
-
-```
-realtime-zunda/
-├── main.py              # メインプログラム
-├── requirements.txt     # Python依存関係
-├── README.md           # このファイル
-├── .gitignore          # Git除外ファイル
-└── .env                # 環境変数（APIキー等）
-```
 
 ## 依存関係
 
@@ -105,10 +114,7 @@ realtime-zunda/
 - `pyaudio`: 音声入出力
 - `requests`: HTTP通信
 - `pydub`: 音声データ処理
-
-## ライセンス
-
-このプロジェクトはMITライセンスの下で公開されています。
+- `python-dotenv`: 環境変数の読み込み
 
 ## 注意事項
 
