@@ -53,7 +53,7 @@ pip install -r requirements.txt
 ### 3. VOICEVOXのセットアップ
 
 1. [VOICEVOX公式サイト](https://voicevox.hiroshiba.jp/)からVOICEVOXをダウンロード・インストール
-2. VOICEVOXを起動し、APIサーバーモードで実行（通常は`http://127.0.0.1:50021`で起動）
+2. VOICEVOXを起動する
 
 ### 4. APIキーの設定
 
