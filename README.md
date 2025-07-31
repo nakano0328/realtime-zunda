@@ -47,7 +47,7 @@ realtime-zunda/
 ### 1. リポジトリのクローン
 
 ```bash
-git clone https://github.com/your-username/realtime-zunda.git
+git clone https://github.com/nakano0328/realtime-zunda.git
 cd realtime-zunda
 ```
 
